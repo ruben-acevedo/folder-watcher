@@ -1,5 +1,5 @@
 {
-  "name": "fwatcher",
+  "name": "folder-watcher",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,5 +8,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ora": "^6.1.2"
+  },
+  "type": "module"
 }
