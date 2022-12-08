@@ -8,16 +8,10 @@ const destinationFolder = process.env.DESTINATION_FOLDER
 
 console.log('Welcome to Folder-Watcher!\n')
 console.log(`Currently destination folder: ${destinationFolder}\n`)
-const spinner = ora(`Watching... ${watchedFolder}`).start()
+ora(`Watching... ${watchedFolder}\n`).start()
 
 fs.watch(watchedFolder, (eventType, filename) => {
-  childProcess.exec(
-    `cd ${watchedFolder} && mv * ${destinationFolder}`,
-    (err) => {
-      if (err) {
-        throw err
-      }
-      console.log(`${filename} moved to ${destinationFolder}`)
-    }
+  childProcess.exec(`cd ${watchedFolder} && mv * ${destinationFolder}`, () =>
+    console.log(`\n${filename} moved to ${destinationFolder}`)
   )
 })
