@@ -11,7 +11,7 @@ console.log(`Currently destination folder: ${destinationFolder}\n`)
 ora(`Watching... ${watchedFolder}\n`).start()
 
 fs.watch(watchedFolder, (eventType, filename) => {
-  childProcess.exec(`cd ${watchedFolder} && mv * ${destinationFolder}`, () =>
+  childProcess.exec(`cd ${watchedFolder} && mv ${filename} ${destinationFolder}`, () =>
     console.log(`\n${filename} moved to ${destinationFolder}`)
   )
 })
